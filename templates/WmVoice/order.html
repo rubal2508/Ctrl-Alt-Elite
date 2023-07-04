@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ item.name }} - Walmart.com
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/item.css' %}">
+
+<div class="row">
+    <div class="col-6">
+        <div>
+            <img src="{{ order.item.getImageUrl }}">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="item-title">{{ order.item.name }}</div>
+        <div class="item-description">{{ order.item.description }}</div>
+
+        {% if order.return_status %}
+        <div class="badge bg-primary">{{ order.return_status }}</div>
+        {% elif not order.delivered_on %}
+        <div class="badge bg-danger">Yet to arrive</div>
+        {% elif order.delivered_on %}
+        <div class="badge bg-success">Delivered on : {{ order.delivered_on }}</div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    item_id = "{{ item.id }}";
+</script>
+<script src="{% static 'js/item.js' %}"></script>
+{% endblock %}

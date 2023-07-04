@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load tags %}
+
+{% block title %}
+Walmart.com | Save Money. Live Better
+{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+
+{% for order in user.choice_ordered_items.all %}
+<div class="row order-box">
+    <div class="col-2">
+        <a href="{% url 'order' order.id %}">
+            <img src="{{ order.item.getImageUrl }}" class="card-img-top" alt="{{ order.item.name }}">
+        </a>
+    </div>
+    <div class="col-10">
+        <div>{{ order.item.name }}</div>
+        <div><small>{{ order.item.description }}</small></div>
+        {% if order.return_status %}
+        <div class="badge bg-primary">{{ order.return_status }}</div>
+        {% elif not order.delivered_on %}
+        <div class="badge bg-danger">Yet to arrive</div>
+        {% elif order.return_valid_till|isDateGreater %}
+        <div class="badge bg-success">Return valid till : {{ order.return_valid_till }}</div>
+        {% elif order.delivered_on %}
+        <div class="badge bg-success">Delivered on : {{ order.delivered_on }}</div>
+        {% endif %}
+
+    </div>
+</div>
+<hr class="my-2">
+{% endfor %}
+
+{% endblock %}

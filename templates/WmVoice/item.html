@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ item.name }} - Walmart.com
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/item.css' %}">
+
+<div class="row">
+    <div class="col-6">
+        <div>
+            <img src="{{ item.getImageUrl }}">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="item-title">{{ item.name }}</div>
+        <div class="item-description">{{ item.description }}</div>
+    </div>
+</div>
+
+
+<div class="reviews-section">
+    {% for review in item.choice_reviews.all %}
+    <hr class="my-2">
+    <div class="review-box">
+        <div class="box-rating">
+            <img src="{% static 'images/user.webp' %}" class="round-image">
+            <span class="star-rating-span-{{ review.rating }}"></span>
+        </div>
+        <div class="box-review-comment">
+            <span> {{ review.comment }} </span>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    item_id = "{{ item.id }}";
+</script>
+<script src="{% static 'js/item.js' %}"></script>
+{% endblock %}

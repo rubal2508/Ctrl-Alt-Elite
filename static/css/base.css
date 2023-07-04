@@ -1,0 +1,66 @@
+.main-container {
+  margin-top: 70px;
+}
+.mic-button {
+  margin: 0 0 0 1%;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+}
+.mic-button:hover {
+  background-color: transparent;
+}
+.base-mic-button {
+  margin-right: 50px;
+}
+.mic-button-logo-default, .mic-button-logo-hover {
+  border-radius: 50%;
+  height: 45px;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 5px;
+}
+.mic-button-logo-default {
+  z-index: 1;
+}
+.message-text {
+  padding: 2%;
+  border-radius: 10px;
+  max-width: 80%;
+}
+.float-left {
+  background-color: aliceblue;
+  float: left;
+}
+.float-right {
+  background-color: beige;
+  float: right;
+}
+.btn-search-items {
+  font-weight: 500;
+  font-style: italic;
+  background-color: #e3ca8f;
+  color: black;
+  padding: 2%;
+  border-radius: 5px;
+  font-size: x-small;
+  text-decoration: none;
+  cursor: pointer;
+  float: right;
+}
+.star-yellow {
+  color: rgb(228, 196, 10);
+}
+.nav-user-icon {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-1 {
+  opacity: 1;
+}
+.mic-button-logo-default-modal, .mic-button-logo-hover-modal {
+  right: 10px;
+}

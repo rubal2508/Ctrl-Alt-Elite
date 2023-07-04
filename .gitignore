@@ -1,0 +1,16 @@
+# Environment
+env/
+
+# Vscode
+.vscode/
+
+# Generated .pyc files
+__pycache__
+**/*.pyc
+
+# Local sqlite
+*.sqlite3
+
+# Local Media
+media/
+assets/Reviews.csv
