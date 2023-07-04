@@ -1,6 +1,6 @@
 # Ctrl-Alt-Elite
 
-Wally : A voice assistant to Walmart application
+Wally : A voice assistant
 
 You will need to have your an Open-AI API key available in env to run this project
 
